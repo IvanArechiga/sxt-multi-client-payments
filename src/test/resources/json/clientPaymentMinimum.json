@@ -1,0 +1,33 @@
+{
+  "uuid" : "e531e991-7598-421d-93b6-a64e220bc980",
+  "timeZone" : "America/Mexico_City",
+  "decimals" : 6,
+  "type" : "CLIENT_PAYMENT",
+  "serie" : "",
+  "comment" : null,
+  "mainIsoCurrency" : null,
+  "isoCurrency" : "MXN",
+  "exchangeRate" : null,
+  "opMode" : "MX",
+  "total" : 457.5,
+  "agent" : {
+    "uuid" : "e5b8ddb2-e059-4ab1-88b4-bc6563a77008",
+    "name" : "Spidey",
+    "alias" : null,
+    "withholdTaxes" : null,
+    "key" : null,
+    "priceNumber" : 1,
+    "emails" : null,
+    "address" : null,
+    "phoneNumbers" : null
+  },
+  "paymentId" : "CASH",
+  "cashRegisterUuid" : "532b4bf0-f854-454b-bb40-a8ca4acc49b5",
+  "creditPayments" : [ {
+    "branchId" : 4142,
+    "documentType" : "SALE",
+    "documentUuid" : "5acd5ebc-8806-4b8f-8907-17fe900060cc",
+    "amount" : 457.5,
+    "convertedAmount" : null
+  } ]
+}

@@ -1,0 +1,28 @@
+{
+  "uuid": null,
+  "timeZone": "America/Mexico_City",
+  "type": "SALE",
+  "serie": "",
+  "isoCurrency": "MXN",
+  "decimals": 6,
+  "opMode": "MX",
+  "total": 100,
+  "products": [
+    {
+      "type": 0,
+      "description": "Product for testing purposes only",
+      "unit": "PZA",
+      "quantity": 1,
+      "priceBaseTax": 100,
+      "priceTax": 100,
+      "amountTax": 100
+    }
+  ],
+  "cashRegisterUuid": null,
+  "payments": [
+    {
+      "paymentId": "CASH",
+      "amount": 100
+    }
+  ]
+}

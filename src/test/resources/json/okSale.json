@@ -1,0 +1,45 @@
+{
+  "type": "SALE",
+  "serie": "A",
+  "comment": "string",
+  "isoCurrency": "MXN",
+  "total": 121.8,
+  "timeZone": "America/Mexico_City",
+  "decimals": 2,
+  "opMode": "MX",
+  "documentDate":  "2022-08-05",
+  "agent": {
+    "uuid": "11111111-1111-1111-1111-111111111111",
+    "name": "PUB GEN",
+    "withholdTaxes": false
+  },
+  "products": [
+    {
+      "uuid": "2KYCV0NS9hjy9CPo5mGG7xNX6P1",
+      "type": 0,
+      "sku": "1111",
+      "description": "Product 1",
+      "quantity": 1,
+      "unit": "PZA",
+      "priceBaseTax": 121.80,
+      "priceTax": 121.80,
+      "amountTax": 121.80,
+      "purchasePriceTax": 80.00,
+      "taxesIds": [
+        "1",
+        "2",
+        "5"
+      ]
+    }
+  ],
+  "cashRegisterUuid": "11111111-1111-1111-1111-111111111111",
+  "payments": [
+    {
+      "paymentId": "CASH",
+      "amount": 150
+    }
+  ],
+  "change": {
+    "amount": 28.2
+  }
+}

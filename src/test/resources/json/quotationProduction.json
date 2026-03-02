@@ -1,0 +1,28 @@
+{
+  "type": "QUOTATION",
+  "serie": "",
+  "isoCurrency": "MXN",
+  "total": 10,
+  "timeZone": "America/Mexico_City",
+  "decimals": 2,
+  "opMode": "MX",
+  "documentDate": "2022-08-05",
+  "products": [
+    {
+      "type": 0,
+      "description": "Product 1",
+      "unit": "PZA",
+      "quantity": 1,
+      "priceBaseTax": 10,
+      "priceTax": 10,
+      "amountTax": 10,
+      "edited": false,
+      "taxesIds": [
+        "f95b6952-36e0-4914-bed3-fc749a5e2c1c",
+        "12fdf8f2-f102-4c87-a13a-32462dd2501b"
+      ]
+    }
+  ],
+  "uuid": "{{$randomUUID}}",
+  "expirationDate": "2023-09-11"
+}

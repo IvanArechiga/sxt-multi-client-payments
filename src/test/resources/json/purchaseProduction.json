@@ -1,0 +1,37 @@
+{
+  "uuid": "{{$randomUUID}}",
+  "timeZone": "America/Mexico_City",
+  "decimals": 2,
+  "type": "PURCHASE",
+  "serie": "",
+  "isoCurrency": "MXN",
+  "opMode": "MX",
+  "total": 10,
+  "agent": {
+    "uuid": "c259b563-b568-4118-9ef4-39fcef3633ff",
+    "name": "Agent Supplier for Purchases"
+  },
+  "products": [
+    {
+      "type": 0,
+      "description": "Prueba de existencia",
+      "unit": "PZA",
+      "salesUnit": "PZA",
+      "factor": 1,
+      "quantity": 1,
+      "priceBaseTax": 10,
+      "priceTax": 10,
+      "amountTax": 10,
+      "taxesIds": [
+        "f95b6952-36e0-4914-bed3-fc749a5e2c1c",
+        "12fdf8f2-f102-4c87-a13a-32462dd2501b"
+      ]
+    }
+  ],
+  "payments": [
+    {
+      "paymentId": "ELECTRONIC_TRANSFER",
+      "amount": 10
+    }
+  ]
+}

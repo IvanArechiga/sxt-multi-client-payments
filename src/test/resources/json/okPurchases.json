@@ -1,0 +1,35 @@
+{
+  "uuid": null,
+  "timeZone": "America/Mexico_City",
+  "decimals": 2,
+  "type": "PURCHASE",
+  "serie": "",
+  "isoCurrency": "MXN",
+  "opMode": "MX",
+  "total": 100,
+  "agent": {
+    "uuid": null,
+    "name": null
+  },
+  "products": [
+    {
+      "uuid": null,
+      "type": 0,
+      "sku": null,
+      "description": "Prueba de existencia",
+      "unit": "PZA",
+      "quantity": 1,
+      "priceBaseTax": 100,
+      "priceTax": 100,
+      "amountTax": 100,
+      "factor": 1
+    }
+  ],
+  "payments": [
+    {
+      "paymentId": "DEBIT_CARD",
+      "amount": 100,
+      "cashRegisterUuid": null
+    }
+  ]
+}
