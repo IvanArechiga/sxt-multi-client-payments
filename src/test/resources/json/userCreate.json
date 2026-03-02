@@ -1,0 +1,33 @@
+{
+  "uuid": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "alias": "Camach",
+  "firstName": "Juan",
+  "lastName": "Camacho Hernandez",
+  "address": {
+    "street": "Street",
+    "inner": "17-B",
+    "outer": "17",
+    "region": "Company region",
+    "city": "City",
+    "state": "Jalisco",
+    "zipCode": "48900",
+    "reference": "Reference",
+    "municipality": "Municipality",
+    "lat": 19.764552341989653,
+    "lon": -104.35442254440318
+  },
+  "countryName": "MEXICO",
+  "countryCode": "52",
+  "phoneNumbers": [
+    {
+      "phoneType": "Cellphone",
+      "phoneCode": "52",
+      "phoneNumber": "3170000000"
+    }
+  ],
+  "birthDate": "2016-03-16",
+  "comment": "Comment about user",
+  "accountMail": "info@sicar.mx",
+  "userTypeUuid": "00000000-0000-0000-0000-000000000000",
+  "roleUuid": "11111111-1111-1111-1111-111111111111"
+}

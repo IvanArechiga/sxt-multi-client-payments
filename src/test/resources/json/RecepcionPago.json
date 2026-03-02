@@ -1,0 +1,21 @@
+{
+    "uuid": null,
+    "documentType": "CLIENT_PAYMENT",
+    "serie": "",
+    "timeZone": "America/Mexico_City",
+    "comment": "Comentario en la Recepción de Pago",
+    "cfdiDate": null,
+    "fechaDePago": null,
+    "formaPago": "01",
+    "documentIds": [
+        null
+    ],
+    "receptor": {
+        "uuid": "f8e8ab02-6f82-4092-b98f-879dd92fc863",
+        "rfc": "XAXX010101000",
+        "nombre": "Suzanne L. Goodwin",
+        "regimenFiscal": "616",
+        "usoCfdi": "CP01",
+        "codigoPostal": "48850"
+    }
+}

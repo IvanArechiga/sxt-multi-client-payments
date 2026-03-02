@@ -1,0 +1,7 @@
+{
+  "amount": "1234",
+  "paymentId": "CASH",
+  "comment": "Comentario",
+  "cashRegisterUuid": "uuid",
+  "type": "INCOME"
+}

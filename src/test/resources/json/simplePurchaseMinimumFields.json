@@ -1,0 +1,34 @@
+{
+  "uuid": null,
+  "timeZone": "America/Mexico_City",
+  "type": "PURCHASE",
+  "serie": "",
+  "isoCurrency": "MXN",
+  "decimals": 6,
+  "opMode": "MX",
+  "total": 45,
+  "products": [
+      {
+        "uuid": null,
+        "sku": null,
+        "type": 0,
+        "description": "Prueba",
+        "unit": "PZA",
+        "quantity": "1",
+        "priceBaseTax": "45.000000",
+        "priceTax": "45.000000",
+        "amountTax": "45.00",
+        "timeQty": 0,
+        "unitTime": 0,
+        "factor": 1,
+        "supplierSku": "SP-01"
+      }
+    ],
+  "payments": [
+    {
+      "paymentId": "DEBIT_CARD",
+      "amount": 45
+    }
+  ]
+}
+
