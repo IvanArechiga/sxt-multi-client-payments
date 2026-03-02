@@ -1,4 +1,4 @@
-rootProject.name = "sxt-template"
+rootProject.name = "sxt-multi-client-payments"
 
 dependencyResolutionManagement {
 

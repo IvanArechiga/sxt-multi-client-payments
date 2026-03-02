@@ -1,0 +1,3550 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Documents API",
+    "description": "GG",
+    "contact": {
+      "name": "Héctor Sánchez",
+      "url": "https://sicar.mx/",
+      "email": "hector@sicar.mx"
+    },
+    "version": "v1"
+  },
+  "servers": [
+    {
+      "url": "https://api.sicarx.com/documents/v1/",
+      "description": "Production"
+    },
+    {
+      "url": "https://dev.sicarx.com/documents/v1/",
+      "description": "Development"
+    },
+    {
+      "url": "http://localhost:8084/v1/",
+      "description": "Localhost"
+    }
+  ],
+  "security": [
+    {
+      "Authentication": []
+    }
+  ],
+  "tags": [
+    {
+      "name": "Documents",
+      "description": "Documents API"
+    }
+  ],
+  "paths": {
+    "/sale/edit/offline": {
+      "put": {
+        "tags": [
+          "Sales Editor API"
+        ],
+        "operationId": "solveConflictSale",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ConflictDocumentLotsDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentResponseDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/quotation": {
+      "put": {
+        "tags": [
+          "Quotations API"
+        ],
+        "operationId": "edit",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/QuotationDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentResponseDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Quotations API"
+        ],
+        "operationId": "create",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/QuotationDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentResponseDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/purchase/stockConflict": {
+      "put": {
+        "tags": [
+          "Purchases API"
+        ],
+        "operationId": "solveConflictSale_1",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ConflictStockDocumentDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentResponseDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/supplierOrder": {
+      "post": {
+        "tags": [
+          "Supplier Order API"
+        ],
+        "operationId": "create_1",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SupplierOrderDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentResponseDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/supplierOrder/cancel": {
+      "post": {
+        "tags": [
+          "Supplier Order API"
+        ],
+        "operationId": "cancel",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SupplierOrderCancellationDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int64"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sale/refund": {
+      "post": {
+        "tags": [
+          "Sale Refund API"
+        ],
+        "operationId": "create_2",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SaleRefundDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentResponseDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sale/refund/cancel": {
+      "post": {
+        "tags": [
+          "Sale Refund API"
+        ],
+        "operationId": "cancel_1",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SaleRefundCancellationDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int64"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sale/cancel": {
+      "post": {
+        "tags": [
+          "Sales Editor API"
+        ],
+        "operationId": "cancel_2",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SaleCancellationDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int64"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/quotation/cancel": {
+      "post": {
+        "tags": [
+          "Quotations API"
+        ],
+        "operationId": "cancel_3",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/QuotationCancellationDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int64"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/purchase": {
+      "post": {
+        "tags": [
+          "Purchases API"
+        ],
+        "operationId": "create_3",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PurchaseDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentResponseDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/purchase/credit/payment": {
+      "post": {
+        "tags": [
+          "Purchases API"
+        ],
+        "operationId": "create_4",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SupplierPaymentDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentResponseDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/purchase/credit/payment/cancel": {
+      "post": {
+        "tags": [
+          "Purchases API"
+        ],
+        "operationId": "cancel_4",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SupplierPaymentCancellationDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int64"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/purchase/checked": {
+      "post": {
+        "tags": [
+          "Purchases API"
+        ],
+        "operationId": "checked",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "string"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/purchase/cfdi": {
+      "post": {
+        "tags": [
+          "Purchases API"
+        ],
+        "operationId": "createFromCfdi",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PurchaseCfdiDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentResponseDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/purchase/cancellationChecked": {
+      "post": {
+        "tags": [
+          "Purchases API"
+        ],
+        "operationId": "cancellationChecked",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "string"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/purchase/cancel": {
+      "post": {
+        "tags": [
+          "Purchases API"
+        ],
+        "operationId": "cancel_5",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PurchaseCancellationDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int64"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/client-payment/pay": {
+      "post": {
+        "tags": [
+          "Client Payment API"
+        ],
+        "operationId": "create_5",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ClientPaymentDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentResponseDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/client-payment/multiPay": {
+      "post": {
+        "tags": [
+          "Client Payment API"
+        ],
+        "operationId": "create_6",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MultiClientPaymentDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentResponseDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/client-payment/cancel": {
+      "post": {
+        "tags": [
+          "Client Payment API"
+        ],
+        "operationId": "cancel_6",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ClientPaymentCancellationDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int64"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/supplierOrder/edit/printConfig": {
+      "patch": {
+        "tags": [
+          "Supplier Order API"
+        ],
+        "operationId": "editPrintConfig",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DocumentPrintConfEditDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sale/edit/seller": {
+      "patch": {
+        "tags": [
+          "Sales Editor API"
+        ],
+        "operationId": "editSeller",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DocEmployeeEditDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sale/edit/comment": {
+      "patch": {
+        "tags": [
+          "Sales Editor API"
+        ],
+        "operationId": "editComment",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DocCommentEditDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sale/checkStatus/{uuid}": {
+      "get": {
+        "tags": [
+          "Sales Queries API"
+        ],
+        "operationId": "checkStatus",
+        "parameters": [
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentResponseDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/purchase/checkStatus/{uuid}": {
+      "get": {
+        "tags": [
+          "Purchase Queries API"
+        ],
+        "operationId": "checkStatus_1",
+        "parameters": [
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentResponseDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/client-payment/multiPay/maxCreditPayments": {
+      "get": {
+        "tags": [
+          "Client Payment API"
+        ],
+        "operationId": "maxCreditPayments",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ConflictDocumentLotsDto": {
+        "required": [
+          "documentId",
+          "products"
+        ],
+        "type": "object",
+        "properties": {
+          "documentId": {
+            "type": "string",
+            "description": "Document identifier",
+            "example": "6650ac740001df2ac7f74a62"
+          },
+          "prescription": {
+            "$ref": "#/components/schemas/PrescriptionDto"
+          },
+          "products": {
+            "type": "array",
+            "description": "Document products with conflict lots",
+            "items": {
+              "$ref": "#/components/schemas/ConflictProductLotsDto"
+            }
+          }
+        }
+      },
+      "ConflictProductLotsDto": {
+        "required": [
+          "lots",
+          "productUuid"
+        ],
+        "type": "object",
+        "properties": {
+          "productUuid": {
+            "type": "string",
+            "description": "Product identifier",
+            "example": "2l1evtJCjtFP4az7Do2hqevurZL"
+          },
+          "lots": {
+            "type": "array",
+            "description": "Product lots",
+            "items": {
+              "$ref": "#/components/schemas/LotDto"
+            }
+          }
+        },
+        "description": "Document products with conflict lots"
+      },
+      "LotDto": {
+        "required": [
+          "lotNumber",
+          "quantity"
+        ],
+        "type": "object",
+        "properties": {
+          "lotNumber": {
+            "maxLength": 36,
+            "minLength": 1,
+            "type": "string",
+            "description": "Lot number",
+            "example": "Lot A"
+          },
+          "quantity": {
+            "type": "number",
+            "description": "Lot quantity",
+            "example": 1
+          },
+          "fabricationDate": {
+            "type": "integer",
+            "description": "Lot fabrication date",
+            "format": "int64",
+            "example": 1724194023095
+          },
+          "expirationDate": {
+            "type": "string",
+            "description": "Lot expiration date",
+            "format": "date"
+          }
+        },
+        "description": "Product lots"
+      },
+      "PrescriptionDto": {
+        "required": [
+          "doctorId",
+          "doctorName",
+          "prescriptionFolio"
+        ],
+        "type": "object",
+        "properties": {
+          "doctorId": {
+            "maximum": 45,
+            "minimum": 1,
+            "type": "string",
+            "description": "Doctor identifier",
+            "example": "12345"
+          },
+          "doctorName": {
+            "maximum": 255,
+            "minimum": 1,
+            "type": "string",
+            "description": "Doctor name",
+            "example": "Sylvester Stallone"
+          },
+          "prescriptionFolio": {
+            "maximum": 25,
+            "minimum": 1,
+            "type": "string",
+            "description": "Prescription folio",
+            "example": "112233"
+          },
+          "observations": {
+            "maximum": 250,
+            "minimum": 1,
+            "type": "string",
+            "description": "Observations ",
+            "example": "This is an observation example"
+          },
+          "retained": {
+            "type": "boolean"
+          }
+        },
+        "description": "Required if CONTROLLED products are used",
+        "nullable": true
+      },
+      "DocumentResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "serieFolio": {
+            "type": "string"
+          },
+          "date": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "ACTIVE",
+              "CANCELED",
+              "FAILED",
+              "PENDING",
+              "TO_PAY",
+              "IN_CONFLICT",
+              "NO_STATUS"
+            ]
+          },
+          "internalFolio": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "errorCode": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "errorMessage": {
+            "type": "string"
+          },
+          "errorEntity": {
+            "type": "object"
+          },
+          "rpsResponse": {
+            "$ref": "#/components/schemas/RpsResponse"
+          }
+        }
+      },
+      "RpsResponse": {
+        "type": "object",
+        "properties": {
+          "responseMessage": {
+            "type": "string"
+          },
+          "errorMessage": {
+            "type": "string"
+          },
+          "responseCode": {
+            "type": "string"
+          },
+          "errorCode": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "reference1": {
+            "type": "string"
+          },
+          "reference2": {
+            "type": "string"
+          },
+          "reference3": {
+            "type": "string"
+          },
+          "success": {
+            "type": "boolean"
+          },
+          "transactionDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "posTransactionId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "transactionId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "legalInformation": {
+            "type": "string"
+          },
+          "providerAuthorization": {
+            "type": "string"
+          },
+          "reference1Name": {
+            "type": "string"
+          },
+          "reference2Name": {
+            "type": "string"
+          },
+          "reference3Name": {
+            "type": "string"
+          }
+        }
+      },
+      "AddressDto": {
+        "type": "object",
+        "properties": {
+          "street": {
+            "maxLength": 128,
+            "type": "string"
+          },
+          "extNumber": {
+            "maxLength": 45,
+            "type": "string"
+          },
+          "intNumber": {
+            "maxLength": 45,
+            "type": "string"
+          },
+          "district": {
+            "maxLength": 128,
+            "type": "string"
+          },
+          "city": {
+            "maxLength": 128,
+            "type": "string"
+          },
+          "county": {
+            "maxLength": 128,
+            "type": "string"
+          },
+          "state": {
+            "maxLength": 45,
+            "type": "string"
+          },
+          "country": {
+            "maxLength": 3,
+            "minLength": 3,
+            "type": "string",
+            "description": "ISO3"
+          },
+          "zipCode": {
+            "maxLength": 10,
+            "minLength": 1,
+            "type": "string"
+          },
+          "reference": {
+            "maxLength": 255,
+            "type": "string"
+          }
+        }
+      },
+      "AgentDto": {
+        "required": [
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "uuid": {
+            "type": "string"
+          },
+          "name": {
+            "maxLength": 128,
+            "type": "string"
+          },
+          "alias": {
+            "maxLength": 128,
+            "type": "string"
+          },
+          "withholdTaxes": {
+            "type": "boolean",
+            "default": false
+          },
+          "key": {
+            "maxLength": 45,
+            "type": "string"
+          },
+          "priceNumber": {
+            "maximum": 10,
+            "minimum": 1,
+            "type": "integer",
+            "format": "int32"
+          },
+          "emails": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "address": {
+            "$ref": "#/components/schemas/AddressDto"
+          },
+          "phoneNumbers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PhoneDto"
+            }
+          }
+        }
+      },
+      "EmployeeDto": {
+        "required": [
+          "name",
+          "uuid"
+        ],
+        "type": "object",
+        "properties": {
+          "uuid": {
+            "type": "string"
+          },
+          "name": {
+            "maximum": 120,
+            "minimum": 1,
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "phoneNumbers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PhoneDto"
+            }
+          },
+          "position": {
+            "type": "string"
+          }
+        }
+      },
+      "IngredientDifferenceProtocol": {
+        "type": "object",
+        "properties": {
+          "state": {
+            "type": "string",
+            "enum": [
+              "WITH",
+              "WITHOUT",
+              "PLUS",
+              "MINUS",
+              "PRE_EXTRA"
+            ]
+          },
+          "extra": {
+            "type": "number"
+          },
+          "description": {
+            "type": "string"
+          },
+          "diff": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "uuid": {
+            "type": "string"
+          },
+          "extraAmountTaxConv": {
+            "type": "number"
+          },
+          "extraAmountTax": {
+            "type": "number"
+          },
+          "extraAmountConv": {
+            "type": "number"
+          },
+          "extraAmount": {
+            "type": "number"
+          },
+          "extraTaxConv": {
+            "type": "number"
+          },
+          "extraTax": {
+            "type": "number"
+          },
+          "extraConv": {
+            "type": "number"
+          },
+          "includedDiff": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "sku": {
+            "type": "string"
+          }
+        },
+        "description": "Required when type \u003d PACKAGE (Optional)"
+      },
+      "PackageDetail": {
+        "type": "object",
+        "properties": {
+          "uuid": {
+            "type": "string"
+          },
+          "sku": {
+            "type": "string"
+          },
+          "type": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "quantity": {
+            "type": "number"
+          },
+          "selections": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "description": {
+            "type": "string"
+          },
+          "unit": {
+            "type": "string"
+          },
+          "print": {
+            "type": "boolean"
+          },
+          "avgPurchasePrice": {
+            "type": "number"
+          },
+          "avgPurchasePriceTax": {
+            "type": "number"
+          },
+          "avgPurchasePriceMc": {
+            "type": "number"
+          },
+          "avgPurchasePriceTaxMc": {
+            "type": "number"
+          },
+          "departmentId": {
+            "type": "string"
+          },
+          "categoryId": {
+            "type": "string"
+          },
+          "lot": {
+            "type": "boolean"
+          }
+        },
+        "description": "Required when type \u003d PACKAGE"
+      },
+      "PhoneDto": {
+        "required": [
+          "phoneCode",
+          "phoneNumber",
+          "phoneType"
+        ],
+        "type": "object",
+        "properties": {
+          "phoneType": {
+            "maxLength": 25,
+            "minLength": 1,
+            "type": "string",
+            "description": "Phone type",
+            "example": "Cellphone"
+          },
+          "phoneCode": {
+            "maxLength": 4,
+            "minLength": 1,
+            "type": "string",
+            "description": "Phone code",
+            "example": "52"
+          },
+          "phoneNumber": {
+            "maxLength": 11,
+            "minLength": 8,
+            "type": "string",
+            "description": "Phone number",
+            "example": "3170000000"
+          }
+        }
+      },
+      "QuotationDto": {
+        "required": [
+          "decimals",
+          "expirationDate",
+          "isoCurrency",
+          "products",
+          "serie",
+          "timeZone",
+          "total",
+          "type",
+          "uuid"
+        ],
+        "type": "object",
+        "properties": {
+          "uuid": {
+            "type": "string"
+          },
+          "timeZone": {
+            "type": "string"
+          },
+          "decimals": {
+            "maximum": 6,
+            "minimum": 2,
+            "type": "integer",
+            "format": "int32"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "QUOTATION",
+              "ORDER",
+              "SALE",
+              "CFDI_INGRESO",
+              "SUPPLIER_ORDER",
+              "PURCHASE",
+              "MULTI_CLIENT_PAYMENT",
+              "CLIENT_PAYMENT",
+              "CFDI_PAGO",
+              "SUPPLIER_PAYMENT",
+              "SALE_REFUND",
+              "CFDI_NOTA_CREDITO"
+            ]
+          },
+          "serie": {
+            "type": "string"
+          },
+          "comment": {
+            "maxLength": 1000,
+            "type": "string"
+          },
+          "mainIsoCurrency": {
+            "maxLength": 3,
+            "type": "string"
+          },
+          "isoCurrency": {
+            "maxLength": 3,
+            "type": "string"
+          },
+          "exchangeRate": {
+            "minimum": 0.0000010,
+            "type": "number"
+          },
+          "opMode": {
+            "type": "string",
+            "enum": [
+              "MX",
+              "US",
+              "CFDI",
+              "REFUND"
+            ]
+          },
+          "total": {
+            "maximum": 1000000000000000,
+            "minimum": 0.0,
+            "type": "number"
+          },
+          "documentDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "agent": {
+            "$ref": "#/components/schemas/AgentDto"
+          },
+          "employee": {
+            "$ref": "#/components/schemas/EmployeeDto"
+          },
+          "expirationDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "products": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/QuotationProduct"
+            }
+          },
+          "withholdingTax": {
+            "type": "number"
+          },
+          "withholdingTaxMc": {
+            "type": "number"
+          }
+        }
+      },
+      "QuotationProduct": {
+        "required": [
+          "amountTax",
+          "description",
+          "edited",
+          "quantity",
+          "type",
+          "unit"
+        ],
+        "type": "object",
+        "properties": {
+          "uuid": {
+            "type": "string"
+          },
+          "type": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "sku": {
+            "maxLength": 100,
+            "type": "string"
+          },
+          "description": {
+            "maxLength": 1000,
+            "type": "string"
+          },
+          "unit": {
+            "maxLength": 5,
+            "type": "string"
+          },
+          "quantity": {
+            "minimum": 0.00010,
+            "type": "number"
+          },
+          "priceBaseTax": {
+            "minimum": 0.0,
+            "type": "number",
+            "description": "Required when opMode \u003d MX"
+          },
+          "priceBaseTaxConv": {
+            "minimum": 0.0,
+            "type": "number",
+            "description": "Required when isoCurrency is different from mainIsoCurrency"
+          },
+          "priceTax": {
+            "minimum": 0.0,
+            "type": "number",
+            "description": "Required when opMode \u003d MX"
+          },
+          "priceTaxConv": {
+            "minimum": 0.0,
+            "type": "number",
+            "description": "Required when isoCurrency is different from mainIsoCurrency"
+          },
+          "priceBase": {
+            "minimum": 0.0,
+            "type": "number",
+            "description": "Required when opMode \u003d US"
+          },
+          "priceBaseConv": {
+            "minimum": 0.0,
+            "type": "number",
+            "description": "Required when isoCurrency is different from mainIsoCurrency"
+          },
+          "price": {
+            "minimum": 0.0,
+            "type": "number",
+            "description": "Required when opMode \u003d US"
+          },
+          "priceConv": {
+            "minimum": 0.0,
+            "type": "number",
+            "description": "Required when isoCurrency is different from mainIsoCurrency"
+          },
+          "amount": {
+            "minimum": 0.0,
+            "type": "number",
+            "description": "Required when opMode \u003d US"
+          },
+          "amountTax": {
+            "minimum": 0.0,
+            "type": "number"
+          },
+          "purchasePriceTax": {
+            "type": "number",
+            "description": "Only for quick products"
+          },
+          "additionalInfo": {
+            "maxLength": 10000,
+            "type": "string"
+          },
+          "comment": {
+            "maxLength": 1000,
+            "type": "string"
+          },
+          "timeQty": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "unitTime": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "taxesIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "departmentId": {
+            "type": "string"
+          },
+          "categoryId": {
+            "type": "string"
+          },
+          "edited": {
+            "type": "boolean"
+          },
+          "detail": {
+            "type": "array",
+            "description": "Required when type \u003d PACKAGE",
+            "items": {
+              "$ref": "#/components/schemas/PackageDetail"
+            }
+          },
+          "printByPackagePriority": {
+            "type": "boolean",
+            "description": "Required when type \u003d PACKAGE"
+          },
+          "extraAmountSum": {
+            "type": "number",
+            "description": "Required when type \u003d PACKAGE"
+          },
+          "extraAmountSumConv": {
+            "type": "number",
+            "description": "Required when type \u003d PACKAGE"
+          },
+          "extraAmountTaxSum": {
+            "type": "number",
+            "description": "Required when type \u003d PACKAGE"
+          },
+          "extraAmountTaxSumConv": {
+            "type": "number",
+            "description": "Required when type \u003d PACKAGE"
+          },
+          "ingredientDifference": {
+            "type": "array",
+            "description": "Required when type \u003d PACKAGE (Optional)",
+            "items": {
+              "$ref": "#/components/schemas/IngredientDifferenceProtocol"
+            }
+          }
+        }
+      },
+      "ConflictStockDocumentDto": {
+        "required": [
+          "documentId"
+        ],
+        "type": "object",
+        "properties": {
+          "documentId": {
+            "type": "string",
+            "description": "Document identifier",
+            "example": "6650ac740001df2ac7f74a62"
+          }
+        }
+      },
+      "DocumentPrintConfDto": {
+        "type": "object",
+        "properties": {
+          "header": {
+            "type": "string"
+          },
+          "footer": {
+            "type": "string"
+          },
+          "general": {
+            "$ref": "#/components/schemas/GeneralPrintConf"
+          },
+          "product": {
+            "$ref": "#/components/schemas/ProductPrintConf"
+          }
+        }
+      },
+      "GeneralPrintConf": {
+        "type": "object",
+        "properties": {
+          "taxBreakdown": {
+            "type": "boolean"
+          },
+          "hideUser": {
+            "type": "boolean"
+          },
+          "estimatedDeliveryDate": {
+            "type": "boolean"
+          }
+        }
+      },
+      "ProductPrintConf": {
+        "type": "object",
+        "properties": {
+          "image": {
+            "type": "boolean"
+          },
+          "characteristics": {
+            "type": "boolean"
+          },
+          "costs": {
+            "type": "boolean"
+          },
+          "supplierKey": {
+            "type": "boolean"
+          },
+          "sku": {
+            "type": "boolean"
+          }
+        }
+      },
+      "SupplierOrderDto": {
+        "required": [
+          "decimals",
+          "expirationDate",
+          "isoCurrency",
+          "products",
+          "serie",
+          "timeZone",
+          "total",
+          "type",
+          "uuid"
+        ],
+        "type": "object",
+        "properties": {
+          "uuid": {
+            "type": "string"
+          },
+          "timeZone": {
+            "type": "string"
+          },
+          "decimals": {
+            "maximum": 6,
+            "minimum": 2,
+            "type": "integer",
+            "format": "int32"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "QUOTATION",
+              "ORDER",
+              "SALE",
+              "CFDI_INGRESO",
+              "SUPPLIER_ORDER",
+              "PURCHASE",
+              "MULTI_CLIENT_PAYMENT",
+              "CLIENT_PAYMENT",
+              "CFDI_PAGO",
+              "SUPPLIER_PAYMENT",
+              "SALE_REFUND",
+              "CFDI_NOTA_CREDITO"
+            ]
+          },
+          "serie": {
+            "type": "string"
+          },
+          "comment": {
+            "maxLength": 1000,
+            "type": "string"
+          },
+          "mainIsoCurrency": {
+            "maxLength": 3,
+            "type": "string"
+          },
+          "isoCurrency": {
+            "maxLength": 3,
+            "type": "string"
+          },
+          "exchangeRate": {
+            "minimum": 0.0000010,
+            "type": "number"
+          },
+          "opMode": {
+            "type": "string",
+            "enum": [
+              "MX",
+              "US",
+              "CFDI",
+              "REFUND"
+            ]
+          },
+          "total": {
+            "maximum": 1000000000000000,
+            "minimum": 0.0,
+            "type": "number"
+          },
+          "agent": {
+            "$ref": "#/components/schemas/AgentDto"
+          },
+          "expirationDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "products": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SupplierOrderProduct"
+            }
+          },
+          "warehouseIds": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "documentPrintConf": {
+            "$ref": "#/components/schemas/DocumentPrintConfDto"
+          }
+        }
+      },
+      "SupplierOrderProduct": {
+        "required": [
+          "amountTax",
+          "description",
+          "factor",
+          "quantity",
+          "supplierSku",
+          "type",
+          "unit"
+        ],
+        "type": "object",
+        "properties": {
+          "uuid": {
+            "type": "string"
+          },
+          "type": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "sku": {
+            "maxLength": 100,
+            "type": "string"
+          },
+          "description": {
+            "maxLength": 1000,
+            "type": "string"
+          },
+          "unit": {
+            "maxLength": 5,
+            "type": "string"
+          },
+          "quantity": {
+            "minimum": 0.00010,
+            "type": "number"
+          },
+          "priceBaseTax": {
+            "minimum": 0.0,
+            "type": "number",
+            "description": "Required when opMode \u003d MX"
+          },
+          "priceBaseTaxConv": {
+            "minimum": 0.0,
+            "type": "number",
+            "description": "Required when isoCurrency is different from mainIsoCurrency"
+          },
+          "priceTax": {
+            "minimum": 0.0,
+            "type": "number",
+            "description": "Required when opMode \u003d MX"
+          },
+          "priceTaxConv": {
+            "minimum": 0.0,
+            "type": "number",
+            "description": "Required when isoCurrency is different from mainIsoCurrency"
+          },
+          "priceBase": {
+            "minimum": 0.0,
+            "type": "number",
+            "description": "Required when opMode \u003d US"
+          },
+          "priceBaseConv": {
+            "minimum": 0.0,
+            "type": "number",
+            "description": "Required when isoCurrency is different from mainIsoCurrency"
+          },
+          "price": {
+            "minimum": 0.0,
+            "type": "number",
+            "description": "Required when opMode \u003d US"
+          },
+          "priceConv": {
+            "minimum": 0.0,
+            "type": "number",
+            "description": "Required when isoCurrency is different from mainIsoCurrency"
+          },
+          "amount": {
+            "minimum": 0.0,
+            "type": "number",
+            "description": "Required when opMode \u003d US"
+          },
+          "amountTax": {
+            "minimum": 0.0,
+            "type": "number"
+          },
+          "purchasePriceTax": {
+            "type": "number",
+            "description": "Only for quick products"
+          },
+          "additionalInfo": {
+            "maxLength": 10000,
+            "type": "string"
+          },
+          "comment": {
+            "maxLength": 1000,
+            "type": "string"
+          },
+          "timeQty": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "unitTime": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "taxesIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "departmentId": {
+            "type": "string"
+          },
+          "categoryId": {
+            "type": "string"
+          },
+          "factor": {
+            "minimum": 1.0,
+            "type": "number"
+          },
+          "supplierSku": {
+            "type": "string"
+          }
+        }
+      },
+      "SupplierOrderCancellationDto": {
+        "required": [
+          "uuid"
+        ],
+        "type": "object",
+        "properties": {
+          "uuid": {
+            "type": "string"
+          },
+          "comment": {
+            "maxLength": 1000,
+            "type": "string"
+          }
+        }
+      },
+      "CardTransactionProtocol": {
+        "type": "object",
+        "properties": {
+          "authorization": {
+            "type": "string"
+          },
+          "paymentOperator": {
+            "type": "string"
+          },
+          "cardType": {
+            "type": "string",
+            "enum": [
+              "DEBIT",
+              "CREDIT"
+            ]
+          },
+          "cardHolder": {
+            "type": "string"
+          },
+          "mask": {
+            "type": "string"
+          },
+          "currency": {
+            "type": "string"
+          },
+          "amount": {
+            "type": "number"
+          },
+          "operationDate": {
+            "type": "string"
+          }
+        }
+      },
+      "PaymentDto": {
+        "required": [
+          "amount",
+          "paymentId"
+        ],
+        "type": "object",
+        "properties": {
+          "paymentId": {
+            "type": "string",
+            "enum": [
+              "CASH",
+              "DEBIT_CARD",
+              "CREDIT_CARD",
+              "ELECTRONIC_TRANSFER",
+              "CHECK",
+              "GROCERY_VOUCHER",
+              "SICARPAY",
+              "SICARPAY_LINK",
+              "CREDIT"
+            ]
+          },
+          "amount": {
+            "minimum": 0.01,
+            "type": "number"
+          },
+          "comment": {
+            "maxLength": 200,
+            "type": "string"
+          },
+          "isoCurrency": {
+            "maxLength": 3,
+            "type": "string"
+          },
+          "exchangeRate": {
+            "minimum": 0.01,
+            "type": "number"
+          },
+          "convertedAmount": {
+            "minimum": 0.01,
+            "type": "number"
+          },
+          "sicarPayProtocol": {
+            "$ref": "#/components/schemas/SicarPayProtocol"
+          }
+        }
+      },
+      "RelatedDocsDto": {
+        "required": [
+          "docsType",
+          "uuids"
+        ],
+        "type": "object",
+        "properties": {
+          "docsType": {
+            "type": "string",
+            "enum": [
+              "QUOTATION",
+              "ORDER",
+              "SALE",
+              "CFDI_INGRESO",
+              "SUPPLIER_ORDER",
+              "PURCHASE",
+              "MULTI_CLIENT_PAYMENT",
+              "CLIENT_PAYMENT",
+              "CFDI_PAGO",
+              "SUPPLIER_PAYMENT",
+              "SALE_REFUND",
+              "CFDI_NOTA_CREDITO"
+            ]
+          },
+          "uuids": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "ids": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "SaleRefundDto": {
+        "required": [
+          "decimals",
+          "docToRefundVersion",
+          "isoCurrency",
+          "products",
+          "serie",
+          "timeZone",
+          "total",
+          "type",
+          "uuid"
+        ],
+        "type": "object",
+        "properties": {
+          "uuid": {
+            "type": "string"
+          },
+          "timeZone": {
+            "type": "string"
+          },
+          "decimals": {
+            "maximum": 6,
+            "minimum": 2,
+            "type": "integer",
+            "format": "int32"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "QUOTATION",
+              "ORDER",
+              "SALE",
+              "CFDI_INGRESO",
+              "SUPPLIER_ORDER",
+              "PURCHASE",
+              "MULTI_CLIENT_PAYMENT",
+              "CLIENT_PAYMENT",
+              "CFDI_PAGO",
+              "SUPPLIER_PAYMENT",
+              "SALE_REFUND",
+              "CFDI_NOTA_CREDITO"
+            ]
+          },
+          "serie": {
+            "type": "string"
+          },
+          "comment": {
+            "maxLength": 1000,
+            "type": "string"
+          },
+          "mainIsoCurrency": {
+            "maxLength": 3,
+            "type": "string"
+          },
+          "isoCurrency": {
+            "maxLength": 3,
+            "type": "string"
+          },
+          "exchangeRate": {
+            "minimum": 0.0000010,
+            "type": "number"
+          },
+          "opMode": {
+            "type": "string",
+            "enum": [
+              "MX",
+              "US",
+              "CFDI",
+              "REFUND"
+            ]
+          },
+          "total": {
+            "maximum": 1000000000000000,
+            "minimum": 0.0,
+            "type": "number"
+          },
+          "withholdingTax": {
+            "type": "number"
+          },
+          "agent": {
+            "$ref": "#/components/schemas/AgentDto"
+          },
+          "employee": {
+            "$ref": "#/components/schemas/EmployeeDto"
+          },
+          "products": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SaleRefundProductDto"
+            }
+          },
+          "cashRegisterUuid": {
+            "type": "string"
+          },
+          "payments": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PaymentDto"
+            }
+          },
+          "relatedDocs": {
+            "$ref": "#/components/schemas/RelatedDocsDto"
+          },
+          "warehouseId": {
+            "type": "string"
+          },
+          "withholdingTaxMc": {
+            "type": "number"
+          },
+          "docToRefundVersion": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      },
+      "SaleRefundProductDto": {
+        "required": [
+          "amountTax",
+          "description",
+          "quantity",
+          "refundId",
+          "type",
+          "unit"
+        ],
+        "type": "object",
+        "properties": {
+          "uuid": {
+            "type": "string"
+          },
+          "type": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "sku": {
+            "maxLength": 100,
+            "type": "string"
+          },
+          "description": {
+            "maxLength": 1000,
+            "type": "string"
+          },
+          "unit": {
+            "maxLength": 5,
+            "type": "string"
+          },
+          "quantity": {
+            "minimum": 0.00010,
+            "type": "number"
+          },
+          "priceBaseTax": {
+            "minimum": 0.0,
+            "type": "number",
+            "description": "Required when opMode \u003d MX"
+          },
+          "priceBaseTaxConv": {
+            "minimum": 0.0,
+            "type": "number",
+            "description": "Required when isoCurrency is different from mainIsoCurrency"
+          },
+          "priceTax": {
+            "minimum": 0.0,
+            "type": "number",
+            "description": "Required when opMode \u003d MX"
+          },
+          "priceTaxConv": {
+            "minimum": 0.0,
+            "type": "number",
+            "description": "Required when isoCurrency is different from mainIsoCurrency"
+          },
+          "priceBase": {
+            "minimum": 0.0,
+            "type": "number",
+            "description": "Required when opMode \u003d US"
+          },
+          "priceBaseConv": {
+            "minimum": 0.0,
+            "type": "number",
+            "description": "Required when isoCurrency is different from mainIsoCurrency"
+          },
+          "price": {
+            "minimum": 0.0,
+            "type": "number",
+            "description": "Required when opMode \u003d US"
+          },
+          "priceConv": {
+            "minimum": 0.0,
+            "type": "number",
+            "description": "Required when isoCurrency is different from mainIsoCurrency"
+          },
+          "amount": {
+            "minimum": 0.0,
+            "type": "number",
+            "description": "Required when opMode \u003d US"
+          },
+          "amountTax": {
+            "minimum": 0.0,
+            "type": "number"
+          },
+          "purchasePriceTax": {
+            "type": "number",
+            "description": "Only for quick products"
+          },
+          "additionalInfo": {
+            "maxLength": 10000,
+            "type": "string"
+          },
+          "comment": {
+            "maxLength": 1000,
+            "type": "string"
+          },
+          "timeQty": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "unitTime": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "taxesIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "departmentId": {
+            "type": "string"
+          },
+          "categoryId": {
+            "type": "string"
+          },
+          "detail": {
+            "type": "array",
+            "description": "Required when type \u003d PACKAGE",
+            "items": {
+              "$ref": "#/components/schemas/PackageDetail"
+            }
+          },
+          "printByPackagePriority": {
+            "type": "boolean",
+            "description": "Required when type \u003d PACKAGE"
+          },
+          "lots": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LotDto"
+            }
+          },
+          "refundId": {
+            "type": "string"
+          }
+        }
+      },
+      "SicarPayProtocol": {
+        "type": "object",
+        "properties": {
+          "cardTransaction": {
+            "$ref": "#/components/schemas/CardTransactionProtocol"
+          },
+          "paymentGateway": {
+            "type": "string",
+            "enum": [
+              "MITEC"
+            ]
+          }
+        }
+      },
+      "RefundDto": {
+        "required": [
+          "amount",
+          "paymentId"
+        ],
+        "type": "object",
+        "properties": {
+          "paymentId": {
+            "type": "string",
+            "enum": [
+              "CASH",
+              "DEBIT_CARD",
+              "CREDIT_CARD",
+              "ELECTRONIC_TRANSFER",
+              "CHECK",
+              "GROCERY_VOUCHER",
+              "SICARPAY",
+              "SICARPAY_LINK",
+              "CREDIT"
+            ]
+          },
+          "amount": {
+            "minimum": 0.01,
+            "type": "number"
+          },
+          "isoCurrency": {
+            "maxLength": 3,
+            "type": "string"
+          },
+          "exchangeRate": {
+            "minimum": 0.01,
+            "type": "number"
+          },
+          "convertedAmount": {
+            "minimum": 0.01,
+            "type": "number"
+          },
+          "sicarPayProtocol": {
+            "$ref": "#/components/schemas/SicarPayProtocol"
+          }
+        },
+        "description": "If null refund is equals to sales payments, (Can\u0027t use refund and refunds at the same time)"
+      },
+      "SaleRefundCancellationDto": {
+        "required": [
+          "cashRegisterUuid",
+          "uuid"
+        ],
+        "type": "object",
+        "properties": {
+          "branchId": {
+            "type": "integer",
+            "description": "Null if branchId is equals to request branchId",
+            "format": "int64"
+          },
+          "uuid": {
+            "type": "string"
+          },
+          "cashRegisterUuid": {
+            "type": "string"
+          },
+          "comment": {
+            "maxLength": 1000,
+            "type": "string"
+          },
+          "refund": {
+            "$ref": "#/components/schemas/RefundDto"
+          },
+          "warehouseId": {
+            "type": "string"
+          },
+          "refunds": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RefundDto"
+            }
+          }
+        }
+      },
+      "SaleCancellationDto": {
+        "required": [
+          "cashRegisterUuid",
+          "uuid"
+        ],
+        "type": "object",
+        "properties": {
+          "branchId": {
+            "type": "integer",
+            "description": "Null if branchId is equals to request branchId",
+            "format": "int64"
+          },
+          "uuid": {
+            "type": "string"
+          },
+          "cashRegisterUuid": {
+            "type": "string"
+          },
+          "comment": {
+            "maxLength": 1000,
+            "type": "string"
+          },
+          "refund": {
+            "$ref": "#/components/schemas/RefundDto"
+          },
+          "warehouseId": {
+            "type": "string"
+          },
+          "refunds": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RefundDto"
+            }
+          }
+        }
+      },
+      "QuotationCancellationDto": {
+        "required": [
+          "uuid"
+        ],
+        "type": "object",
+        "properties": {
+          "uuid": {
+            "type": "string"
+          },
+          "comment": {
+            "maxLength": 1000,
+            "type": "string"
+          }
+        }
+      },
+      "CustomPaymentDto": {
+        "required": [
+          "amount",
+          "paymentId"
+        ],
+        "type": "object",
+        "properties": {
+          "paymentId": {
+            "type": "string",
+            "enum": [
+              "CASH",
+              "DEBIT_CARD",
+              "CREDIT_CARD",
+              "ELECTRONIC_TRANSFER",
+              "CHECK",
+              "GROCERY_VOUCHER",
+              "SICARPAY",
+              "SICARPAY_LINK",
+              "CREDIT"
+            ]
+          },
+          "amount": {
+            "minimum": 0.01,
+            "type": "number"
+          },
+          "comment": {
+            "maxLength": 200,
+            "type": "string"
+          },
+          "isoCurrency": {
+            "maxLength": 3,
+            "type": "string"
+          },
+          "exchangeRate": {
+            "minimum": 0.01,
+            "type": "number"
+          },
+          "convertedAmount": {
+            "minimum": 0.01,
+            "type": "number"
+          },
+          "sicarPayProtocol": {
+            "$ref": "#/components/schemas/SicarPayProtocol"
+          },
+          "cashRegisterUuid": {
+            "type": "string"
+          }
+        }
+      },
+      "PurchaseDto": {
+        "required": [
+          "decimals",
+          "isoCurrency",
+          "products",
+          "serie",
+          "timeZone",
+          "total",
+          "type",
+          "uuid"
+        ],
+        "type": "object",
+        "properties": {
+          "uuid": {
+            "type": "string"
+          },
+          "timeZone": {
+            "type": "string"
+          },
+          "decimals": {
+            "maximum": 6,
+            "minimum": 2,
+            "type": "integer",
+            "format": "int32"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "QUOTATION",
+              "ORDER",
+              "SALE",
+              "CFDI_INGRESO",
+              "SUPPLIER_ORDER",
+              "PURCHASE",
+              "MULTI_CLIENT_PAYMENT",
+              "CLIENT_PAYMENT",
+              "CFDI_PAGO",
+              "SUPPLIER_PAYMENT",
+              "SALE_REFUND",
+              "CFDI_NOTA_CREDITO"
+            ]
+          },
+          "serie": {
+            "type": "string"
+          },
+          "comment": {
+            "maxLength": 1000,
+            "type": "string"
+          },
+          "mainIsoCurrency": {
+            "maxLength": 3,
+            "type": "string"
+          },
+          "isoCurrency": {
+            "maxLength": 3,
+            "type": "string"
+          },
+          "exchangeRate": {
+            "minimum": 0.0000010,
+            "type": "number"
+          },
+          "opMode": {
+            "type": "string",
+            "enum": [
+              "MX",
+              "US",
+              "CFDI",
+              "REFUND"
+            ]
+          },
+          "total": {
+            "maximum": 1000000000000000,
+            "minimum": 0.0,
+            "type": "number"
+          },
+          "documentDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "withholdingTax": {
+            "type": "number"
+          },
+          "agent": {
+            "$ref": "#/components/schemas/AgentDto"
+          },
+          "employee": {
+            "$ref": "#/components/schemas/EmployeeDto"
+          },
+          "products": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PurchaseProduct"
+            }
+          },
+          "payments": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CustomPaymentDto"
+            }
+          },
+          "warehouseId": {
+            "type": "string"
+          },
+          "externalFolio": {
+            "type": "string"
+          },
+          "withholdingTaxMc": {
+            "type": "number"
+          },
+          "creditDueDate": {
+            "type": "string",
+            "description": "Not required if payments is NULL or total is zero",
+            "format": "date"
+          },
+          "relatedDocs": {
+            "$ref": "#/components/schemas/RelatedDocsProtocol"
+          }
+        }
+      },
+      "PurchaseProduct": {
+        "required": [
+          "amountTax",
+          "description",
+          "factor",
+          "quantity",
+          "supplierSku",
+          "type",
+          "unit"
+        ],
+        "type": "object",
+        "properties": {
+          "uuid": {
+            "type": "string"
+          },
+          "type": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "sku": {
+            "maxLength": 100,
+            "type": "string"
+          },
+          "description": {
+            "maxLength": 1000,
+            "type": "string"
+          },
+          "unit": {
+            "maxLength": 5,
+            "type": "string"
+          },
+          "quantity": {
+            "minimum": 0.00010,
+            "type": "number"
+          },
+          "priceBaseTax": {
+            "minimum": 0.0,
+            "type": "number",
+            "description": "Required when opMode \u003d MX"
+          },
+          "priceBaseTaxConv": {
+            "minimum": 0.0,
+            "type": "number",
+            "description": "Required when isoCurrency is different from mainIsoCurrency"
+          },
+          "priceTax": {
+            "minimum": 0.0,
+            "type": "number",
+            "description": "Required when opMode \u003d MX"
+          },
+          "priceTaxConv": {
+            "minimum": 0.0,
+            "type": "number",
+            "description": "Required when isoCurrency is different from mainIsoCurrency"
+          },
+          "priceBase": {
+            "minimum": 0.0,
+            "type": "number",
+            "description": "Required when opMode \u003d US"
+          },
+          "priceBaseConv": {
+            "minimum": 0.0,
+            "type": "number",
+            "description": "Required when isoCurrency is different from mainIsoCurrency"
+          },
+          "price": {
+            "minimum": 0.0,
+            "type": "number",
+            "description": "Required when opMode \u003d US"
+          },
+          "priceConv": {
+            "minimum": 0.0,
+            "type": "number",
+            "description": "Required when isoCurrency is different from mainIsoCurrency"
+          },
+          "amount": {
+            "minimum": 0.0,
+            "type": "number",
+            "description": "Required when opMode \u003d US"
+          },
+          "amountTax": {
+            "minimum": 0.0,
+            "type": "number"
+          },
+          "purchasePriceTax": {
+            "type": "number",
+            "description": "Only for quick products"
+          },
+          "additionalInfo": {
+            "maxLength": 10000,
+            "type": "string"
+          },
+          "comment": {
+            "maxLength": 1000,
+            "type": "string"
+          },
+          "timeQty": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "unitTime": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "taxesIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "departmentId": {
+            "type": "string"
+          },
+          "categoryId": {
+            "type": "string"
+          },
+          "factor": {
+            "minimum": 1.0,
+            "type": "number"
+          },
+          "lots": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LotDto"
+            }
+          },
+          "supplierSku": {
+            "type": "string"
+          }
+        }
+      },
+      "RelatedDocsProtocol": {
+        "type": "object",
+        "properties": {
+          "ids": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "uuids": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "docsType": {
+            "type": "string",
+            "enum": [
+              "QUOTATION",
+              "ORDER",
+              "SALE",
+              "CFDI_INGRESO",
+              "SUPPLIER_ORDER",
+              "PURCHASE",
+              "MULTI_CLIENT_PAYMENT",
+              "CLIENT_PAYMENT",
+              "CFDI_PAGO",
+              "SUPPLIER_PAYMENT",
+              "SALE_REFUND",
+              "CFDI_NOTA_CREDITO"
+            ]
+          }
+        }
+      },
+      "CreditPaymentDto": {
+        "required": [
+          "amount",
+          "branchId",
+          "documentType",
+          "documentUuid"
+        ],
+        "type": "object",
+        "properties": {
+          "branchId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "documentType": {
+            "type": "string",
+            "enum": [
+              "QUOTATION",
+              "ORDER",
+              "SALE",
+              "CFDI_INGRESO",
+              "SUPPLIER_ORDER",
+              "PURCHASE",
+              "MULTI_CLIENT_PAYMENT",
+              "CLIENT_PAYMENT",
+              "CFDI_PAGO",
+              "SUPPLIER_PAYMENT",
+              "SALE_REFUND",
+              "CFDI_NOTA_CREDITO"
+            ]
+          },
+          "documentUuid": {
+            "type": "string"
+          },
+          "documentId": {
+            "type": "string",
+            "description": "REQUIRED only if documentUuid is null or Document is MultiPayment"
+          },
+          "amount": {
+            "type": "number"
+          },
+          "convertedAmount": {
+            "minimum": 0.01,
+            "type": "number"
+          }
+        }
+      },
+      "SupplierPaymentDto": {
+        "required": [
+          "agent",
+          "cashRegisterUuid",
+          "creditPayments",
+          "decimals",
+          "isoCurrency",
+          "paymentId",
+          "serie",
+          "timeZone",
+          "total",
+          "type",
+          "uuid"
+        ],
+        "type": "object",
+        "properties": {
+          "uuid": {
+            "type": "string"
+          },
+          "timeZone": {
+            "type": "string"
+          },
+          "decimals": {
+            "maximum": 6,
+            "minimum": 2,
+            "type": "integer",
+            "format": "int32"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "QUOTATION",
+              "ORDER",
+              "SALE",
+              "CFDI_INGRESO",
+              "SUPPLIER_ORDER",
+              "PURCHASE",
+              "MULTI_CLIENT_PAYMENT",
+              "CLIENT_PAYMENT",
+              "CFDI_PAGO",
+              "SUPPLIER_PAYMENT",
+              "SALE_REFUND",
+              "CFDI_NOTA_CREDITO"
+            ]
+          },
+          "serie": {
+            "type": "string"
+          },
+          "comment": {
+            "maxLength": 1000,
+            "type": "string"
+          },
+          "mainIsoCurrency": {
+            "maxLength": 3,
+            "type": "string"
+          },
+          "isoCurrency": {
+            "maxLength": 3,
+            "type": "string"
+          },
+          "exchangeRate": {
+            "minimum": 0.0000010,
+            "type": "number"
+          },
+          "opMode": {
+            "type": "string",
+            "enum": [
+              "MX",
+              "US",
+              "CFDI",
+              "REFUND"
+            ]
+          },
+          "total": {
+            "maximum": 1000000000000000,
+            "minimum": 0.0,
+            "type": "number"
+          },
+          "agent": {
+            "$ref": "#/components/schemas/AgentDto"
+          },
+          "paymentId": {
+            "type": "string",
+            "enum": [
+              "CASH",
+              "DEBIT_CARD",
+              "CREDIT_CARD",
+              "ELECTRONIC_TRANSFER",
+              "CHECK",
+              "GROCERY_VOUCHER",
+              "SICARPAY",
+              "SICARPAY_LINK",
+              "CREDIT"
+            ]
+          },
+          "cashRegisterUuid": {
+            "type": "string"
+          },
+          "creditPayments": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CreditPaymentDto"
+            }
+          }
+        }
+      },
+      "SupplierPaymentCancellationDto": {
+        "required": [
+          "cashRegisterUuid",
+          "uuid"
+        ],
+        "type": "object",
+        "properties": {
+          "branchId": {
+            "type": "integer",
+            "description": "Null if branchId is equals to request branchId",
+            "format": "int64"
+          },
+          "uuid": {
+            "type": "string"
+          },
+          "cashRegisterUuid": {
+            "type": "string"
+          },
+          "comment": {
+            "maxLength": 1000,
+            "type": "string"
+          },
+          "refund": {
+            "$ref": "#/components/schemas/RefundDto"
+          },
+          "refunds": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RefundDto"
+            }
+          }
+        }
+      },
+      "EmisorDto": {
+        "required": [
+          "lugarExpedicion",
+          "nombre",
+          "regimenFiscal",
+          "rfc"
+        ],
+        "type": "object",
+        "properties": {
+          "rfc": {
+            "type": "string",
+            "description": "Rfc del emisor",
+            "example": "XAXX010101000"
+          },
+          "nombre": {
+            "type": "string",
+            "description": "Nombre del emisor",
+            "example": "Andres Manuel"
+          },
+          "regimenFiscal": {
+            "type": "string",
+            "description": "Regimen fiscal del emisor",
+            "example": "601"
+          },
+          "lugarExpedicion": {
+            "type": "string",
+            "description": "Lugar de expedicion del emisor",
+            "example": "48902"
+          },
+          "address": {
+            "$ref": "#/components/schemas/AddressDto"
+          }
+        }
+      },
+      "ProductTaxCfdi": {
+        "type": "object",
+        "properties": {
+          "taxId": {
+            "type": "string"
+          },
+          "total": {
+            "type": "number"
+          },
+          "tras": {
+            "type": "boolean"
+          }
+        }
+      },
+      "PurchaseCfdiDto": {
+        "required": [
+          "decimals",
+          "emisor",
+          "invoiceUuid",
+          "isoCurrency",
+          "products",
+          "serie",
+          "timeZone",
+          "total",
+          "type",
+          "uuid"
+        ],
+        "type": "object",
+        "properties": {
+          "uuid": {
+            "type": "string"
+          },
+          "timeZone": {
+            "type": "string"
+          },
+          "decimals": {
+            "maximum": 6,
+            "minimum": 2,
+            "type": "integer",
+            "format": "int32"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "QUOTATION",
+              "ORDER",
+              "SALE",
+              "CFDI_INGRESO",
+              "SUPPLIER_ORDER",
+              "PURCHASE",
+              "MULTI_CLIENT_PAYMENT",
+              "CLIENT_PAYMENT",
+              "CFDI_PAGO",
+              "SUPPLIER_PAYMENT",
+              "SALE_REFUND",
+              "CFDI_NOTA_CREDITO"
+            ]
+          },
+          "serie": {
+            "type": "string"
+          },
+          "comment": {
+            "maxLength": 1000,
+            "type": "string"
+          },
+          "mainIsoCurrency": {
+            "maxLength": 3,
+            "type": "string"
+          },
+          "isoCurrency": {
+            "maxLength": 3,
+            "type": "string"
+          },
+          "exchangeRate": {
+            "minimum": 0.0000010,
+            "type": "number"
+          },
+          "opMode": {
+            "type": "string",
+            "enum": [
+              "MX",
+              "US",
+              "CFDI",
+              "REFUND"
+            ]
+          },
+          "total": {
+            "maximum": 1000000000000000,
+            "minimum": 0.0,
+            "type": "number"
+          },
+          "documentDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "withholdingTax": {
+            "type": "number"
+          },
+          "agent": {
+            "$ref": "#/components/schemas/AgentDto"
+          },
+          "employee": {
+            "$ref": "#/components/schemas/EmployeeDto"
+          },
+          "products": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PurchaseProductCfdi"
+            }
+          },
+          "payments": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CustomPaymentDto"
+            }
+          },
+          "warehouseId": {
+            "type": "string"
+          },
+          "externalFolio": {
+            "type": "string"
+          },
+          "withholdingTaxMc": {
+            "type": "number"
+          },
+          "invoiceUuid": {
+            "type": "string"
+          },
+          "emisor": {
+            "$ref": "#/components/schemas/EmisorDto"
+          },
+          "creditDueDate": {
+            "type": "string",
+            "description": "Not required if payments is NULL or total is zero",
+            "format": "date"
+          }
+        }
+      },
+      "PurchaseProductCfdi": {
+        "required": [
+          "amountTax",
+          "description",
+          "factor",
+          "quantity",
+          "supplierSku",
+          "type",
+          "unit"
+        ],
+        "type": "object",
+        "properties": {
+          "uuid": {
+            "type": "string"
+          },
+          "type": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "sku": {
+            "maxLength": 100,
+            "type": "string"
+          },
+          "description": {
+            "maxLength": 1000,
+            "type": "string"
+          },
+          "unit": {
+            "maxLength": 5,
+            "type": "string"
+          },
+          "quantity": {
+            "minimum": 0.00010,
+            "type": "number"
+          },
+          "priceBaseTax": {
+            "minimum": 0.0,
+            "type": "number",
+            "description": "Required when opMode \u003d MX"
+          },
+          "priceBaseTaxConv": {
+            "minimum": 0.0,
+            "type": "number",
+            "description": "Required when isoCurrency is different from mainIsoCurrency"
+          },
+          "priceTax": {
+            "minimum": 0.0,
+            "type": "number",
+            "description": "Required when opMode \u003d MX"
+          },
+          "priceTaxConv": {
+            "minimum": 0.0,
+            "type": "number",
+            "description": "Required when isoCurrency is different from mainIsoCurrency"
+          },
+          "priceBase": {
+            "minimum": 0.0,
+            "type": "number",
+            "description": "Required when opMode \u003d US"
+          },
+          "priceBaseConv": {
+            "minimum": 0.0,
+            "type": "number",
+            "description": "Required when isoCurrency is different from mainIsoCurrency"
+          },
+          "price": {
+            "minimum": 0.0,
+            "type": "number",
+            "description": "Required when opMode \u003d US"
+          },
+          "priceConv": {
+            "minimum": 0.0,
+            "type": "number",
+            "description": "Required when isoCurrency is different from mainIsoCurrency"
+          },
+          "amount": {
+            "minimum": 0.0,
+            "type": "number",
+            "description": "Required when opMode \u003d US"
+          },
+          "amountTax": {
+            "minimum": 0.0,
+            "type": "number"
+          },
+          "purchasePriceTax": {
+            "type": "number",
+            "description": "Only for quick products"
+          },
+          "additionalInfo": {
+            "maxLength": 10000,
+            "type": "string"
+          },
+          "comment": {
+            "maxLength": 1000,
+            "type": "string"
+          },
+          "timeQty": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "unitTime": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "taxesIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "departmentId": {
+            "type": "string"
+          },
+          "categoryId": {
+            "type": "string"
+          },
+          "factor": {
+            "minimum": 1.0,
+            "type": "number"
+          },
+          "taxesCfdi": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProductTaxCfdi"
+            }
+          },
+          "supplierSku": {
+            "type": "string"
+          },
+          "amountTaxConv": {
+            "type": "number"
+          },
+          "amountBaseTaxConv": {
+            "type": "number"
+          },
+          "lots": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LotDto"
+            }
+          }
+        }
+      },
+      "PurchaseCancellationDto": {
+        "required": [
+          "cashRegisterUuid",
+          "uuid"
+        ],
+        "type": "object",
+        "properties": {
+          "uuid": {
+            "type": "string"
+          },
+          "cashRegisterUuid": {
+            "type": "string"
+          },
+          "comment": {
+            "maxLength": 1000,
+            "type": "string"
+          },
+          "warehouseId": {
+            "type": "string"
+          },
+          "refunds": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RefundDto"
+            }
+          }
+        }
+      },
+      "ClientPaymentDto": {
+        "required": [
+          "agent",
+          "cashRegisterUuid",
+          "creditPayments",
+          "decimals",
+          "isoCurrency",
+          "paymentId",
+          "serie",
+          "timeZone",
+          "total",
+          "type",
+          "uuid"
+        ],
+        "type": "object",
+        "properties": {
+          "uuid": {
+            "type": "string"
+          },
+          "timeZone": {
+            "type": "string"
+          },
+          "decimals": {
+            "maximum": 6,
+            "minimum": 2,
+            "type": "integer",
+            "format": "int32"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "QUOTATION",
+              "ORDER",
+              "SALE",
+              "CFDI_INGRESO",
+              "SUPPLIER_ORDER",
+              "PURCHASE",
+              "MULTI_CLIENT_PAYMENT",
+              "CLIENT_PAYMENT",
+              "CFDI_PAGO",
+              "SUPPLIER_PAYMENT",
+              "SALE_REFUND",
+              "CFDI_NOTA_CREDITO"
+            ]
+          },
+          "serie": {
+            "type": "string"
+          },
+          "comment": {
+            "maxLength": 1000,
+            "type": "string"
+          },
+          "mainIsoCurrency": {
+            "maxLength": 3,
+            "type": "string"
+          },
+          "isoCurrency": {
+            "maxLength": 3,
+            "type": "string"
+          },
+          "exchangeRate": {
+            "minimum": 0.0000010,
+            "type": "number"
+          },
+          "opMode": {
+            "type": "string",
+            "enum": [
+              "MX",
+              "US",
+              "CFDI",
+              "REFUND"
+            ]
+          },
+          "total": {
+            "maximum": 1000000000000000,
+            "minimum": 0.0,
+            "type": "number"
+          },
+          "agent": {
+            "$ref": "#/components/schemas/AgentDto"
+          },
+          "paymentId": {
+            "type": "string",
+            "enum": [
+              "CASH",
+              "DEBIT_CARD",
+              "CREDIT_CARD",
+              "ELECTRONIC_TRANSFER",
+              "CHECK",
+              "GROCERY_VOUCHER",
+              "SICARPAY",
+              "SICARPAY_LINK",
+              "CREDIT"
+            ]
+          },
+          "cashRegisterUuid": {
+            "type": "string"
+          },
+          "creditPayments": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CreditPaymentDto"
+            }
+          }
+        }
+      },
+      "MultiClientPaymentDto": {
+        "required": [
+          "agent",
+          "cashRegisterUuid",
+          "creditPayments",
+          "decimals",
+          "isoCurrency",
+          "paymentId",
+          "serie",
+          "seriesPayments",
+          "timeZone",
+          "total",
+          "type",
+          "uuid"
+        ],
+        "type": "object",
+        "properties": {
+          "uuid": {
+            "type": "string"
+          },
+          "timeZone": {
+            "type": "string"
+          },
+          "decimals": {
+            "maximum": 6,
+            "minimum": 2,
+            "type": "integer",
+            "format": "int32"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "QUOTATION",
+              "ORDER",
+              "SALE",
+              "CFDI_INGRESO",
+              "SUPPLIER_ORDER",
+              "PURCHASE",
+              "MULTI_CLIENT_PAYMENT",
+              "CLIENT_PAYMENT",
+              "CFDI_PAGO",
+              "SUPPLIER_PAYMENT",
+              "SALE_REFUND",
+              "CFDI_NOTA_CREDITO"
+            ]
+          },
+          "serie": {
+            "type": "string"
+          },
+          "comment": {
+            "maxLength": 1000,
+            "type": "string"
+          },
+          "mainIsoCurrency": {
+            "maxLength": 3,
+            "type": "string"
+          },
+          "isoCurrency": {
+            "maxLength": 3,
+            "type": "string"
+          },
+          "exchangeRate": {
+            "minimum": 0.0000010,
+            "type": "number"
+          },
+          "opMode": {
+            "type": "string",
+            "enum": [
+              "MX",
+              "US",
+              "CFDI",
+              "REFUND"
+            ]
+          },
+          "total": {
+            "maximum": 1000000000000000,
+            "minimum": 0.0,
+            "type": "number"
+          },
+          "agent": {
+            "$ref": "#/components/schemas/AgentDto"
+          },
+          "paymentId": {
+            "type": "string",
+            "enum": [
+              "CASH",
+              "DEBIT_CARD",
+              "CREDIT_CARD",
+              "ELECTRONIC_TRANSFER",
+              "CHECK",
+              "GROCERY_VOUCHER",
+              "SICARPAY",
+              "SICARPAY_LINK",
+              "CREDIT"
+            ]
+          },
+          "cashRegisterUuid": {
+            "type": "string"
+          },
+          "creditPayments": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CreditPaymentDto"
+            }
+          },
+          "seriesPayments": {
+            "type": "string"
+          }
+        }
+      },
+      "ClientPaymentCancellationDto": {
+        "required": [
+          "cashRegisterUuid",
+          "uuid"
+        ],
+        "type": "object",
+        "properties": {
+          "branchId": {
+            "type": "integer",
+            "description": "Null if branchId is equals to request branchId",
+            "format": "int64"
+          },
+          "uuid": {
+            "type": "string"
+          },
+          "cashRegisterUuid": {
+            "type": "string"
+          },
+          "comment": {
+            "maxLength": 1000,
+            "type": "string"
+          },
+          "refund": {
+            "$ref": "#/components/schemas/RefundDto"
+          },
+          "refunds": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RefundDto"
+            }
+          }
+        }
+      },
+      "DocumentPrintConfEditDto": {
+        "type": "object",
+        "properties": {
+          "uuid": {
+            "type": "string"
+          },
+          "documentPrintConf": {
+            "$ref": "#/components/schemas/DocumentPrintConfDto"
+          }
+        }
+      },
+      "DocEmployeeEditDto": {
+        "required": [
+          "uuid"
+        ],
+        "type": "object",
+        "properties": {
+          "uuid": {
+            "type": "string"
+          },
+          "employee": {
+            "$ref": "#/components/schemas/EmployeeDto"
+          }
+        }
+      },
+      "DocCommentEditDto": {
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "uuid": {
+            "type": "string",
+            "deprecated": true
+          },
+          "id": {
+            "type": "string"
+          },
+          "comment": {
+            "maxLength": 1000,
+            "type": "string"
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "Authentication": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  }
+}
