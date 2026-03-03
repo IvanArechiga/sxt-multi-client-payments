@@ -18,6 +18,7 @@ import com.sicarx.department.client.dto.DepartmentUpdateDto;
 import com.sicarx.document.dto.cfdi.DatosFacturacionIngresoCreateDto;
 import com.sicarx.document.dto.clientpayment.ClientPaymentCancellationDto;
 import com.sicarx.document.dto.clientpayment.ClientPaymentDto;
+import com.sicarx.document.dto.multiclientpayment.MultiClientPaymentDto;
 import com.sicarx.document.dto.orders.OrderDto;
 import com.sicarx.document.dto.purchases.PurchaseCancellationDto;
 import com.sicarx.document.dto.purchases.PurchaseDto;
@@ -47,6 +48,7 @@ import com.sicarx.unit.client.dto.UnitUpdateDto;
 import org.junit.jupiter.api.BeforeEach;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import setup.templates.SalesTemplates;
 import sxb.tests.spring.ServiceTestRestTemplate;
 
 
@@ -112,7 +114,7 @@ public class RequestInitializer {
         restTemplate.setPrintResponseBody(true);
 
         saleRequests = new SaleRequests();
-        saleRequests.post().setDtoSupplier(SaleDto::new);
+        saleRequests.post().setDtoSupplier(SalesTemplates::getSaleDtoDefault);
         saleRequests.post().setJsonDtoPath("json/simpleSaleMinimumFields.json");
         saleRequests.postCancel().setDtoSupplier(SaleCancellationDto::new);
         saleRequests.editSeller().setDtoSupplier(DocEmployeeEditDto::new);
@@ -141,6 +143,7 @@ public class RequestInitializer {
 
         clientPayRequests = new ClientPaymentRequests();
         clientPayRequests.post().setDtoSupplier(ClientPaymentDto::new);
+        clientPayRequests.multipay().setDtoSupplier(MultiClientPaymentDto::new);
         clientPayRequests.post().setJsonDtoPath("json/ClientPayment.json");
         clientPayRequests.cancel().setDtoSupplier(ClientPaymentCancellationDto::new);
 

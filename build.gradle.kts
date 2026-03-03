@@ -15,10 +15,17 @@ repositories {
 }
 
 var testRequests = "1.0.21-development-SNAPSHOT"
+var jupiter = "6.0.3"
 
 dependencies {
     testImplementation("io.swagger.core.v3:swagger-annotations:2.2.43")
     testImplementation("com.sicarx:sxt-plugin:1.0.1")
+    
+    // JUnit Platform
+    testImplementation("org.junit.jupiter:junit-jupiter-api:$jupiter")
+    testImplementation("org.junit.jupiter:junit-jupiter-params:$jupiter")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:$jupiter")
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher:$jupiter")
 
     implementation("com.sicarx:sx-test-requests:$testRequests")
 }
