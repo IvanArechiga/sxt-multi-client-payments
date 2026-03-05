@@ -48,6 +48,7 @@ import com.sicarx.unit.client.dto.UnitUpdateDto;
 import org.junit.jupiter.api.BeforeEach;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import setup.templates.PaymentTemplates;
 import setup.templates.SalesTemplates;
 import sxb.tests.spring.ServiceTestRestTemplate;
 
@@ -143,7 +144,7 @@ public class RequestInitializer {
 
         clientPayRequests = new ClientPaymentRequests();
         clientPayRequests.post().setDtoSupplier(ClientPaymentDto::new);
-        clientPayRequests.multipay().setDtoSupplier(MultiClientPaymentDto::new);
+        clientPayRequests.multipay().setDtoSupplier(PaymentTemplates::getMultiPaymentDtoDefault);
         clientPayRequests.post().setJsonDtoPath("json/ClientPayment.json");
         clientPayRequests.cancel().setDtoSupplier(ClientPaymentCancellationDto::new);
 

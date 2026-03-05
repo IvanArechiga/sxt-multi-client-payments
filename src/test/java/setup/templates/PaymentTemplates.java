@@ -1,5 +1,7 @@
 package setup.templates;
 
+import com.sicarx.document.domain.DocumentType;
+import com.sicarx.document.domain.OpMode;
 import com.sicarx.document.dto.multiclientpayment.MultiClientPaymentDto;
 
 import static com.sicarx.document.domain.DocumentType.MULTI_CLIENT_PAYMENT;
@@ -14,6 +16,7 @@ public class PaymentTemplates {
         multiPayment.setType(MULTI_CLIENT_PAYMENT);
         multiPayment.setSerie("");
         multiPayment.setIsoCurrency("MXN");
+        multiPayment.setOpMode(OpMode.MX);
 
         return multiPayment;
     }
